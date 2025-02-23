@@ -1,7 +1,7 @@
 # Nexi - AI-Powered Voice Assistant
 
 ## Introduction
-Nexi is an advanced AI-powered voice assistant designed to make life easier, Nexi can perform various tasks such as opening websites, retrieving news updates, playing music, and providing intelligent responses using the Google Gemini API. Whether you're looking for the latest technology news, quick web navigation, or a conversational AI experience, Nexi has got you covered!
+Nexi is an AI-powered voice assistant designed to make life easier, Nexi can perform various tasks such as opening websites, retrieving news updates, playing music, and providing intelligent responses using the Google Gemini API. Whether you're looking for the latest technology news, quick web navigation, or a conversational AI experience, Nexi has got you covered!
 
 ## Overview
 Nexi is a voice assistant powered by speech recognition and AI. It can open websites, fetch news, play music, and answer user queries using the Google Gemini API.
