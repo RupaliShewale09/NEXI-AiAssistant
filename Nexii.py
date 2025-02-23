@@ -17,22 +17,20 @@ import os
 Geminiapi = os.getenv("Geminiapi") 
 newsapi = os.getenv("Newsapi")
 
- 
-# Configure Google Gemini API
-genai.configure(api_key=Geminiapi)
 
+genai.configure(api_key=Geminiapi)
 model = genai.GenerativeModel("gemini-pro")
 
 #speech
-recognizer = sr.Recognizer()  #recognizier is a class
+recognizer = sr.Recognizer()  
 engine = pyttsx3.init()
 
 #voice rate  fast or slow
-rate = engine.getProperty('rate')   # getting details of current speaking rate
+rate = engine.getProperty('rate')   #get details of current voice rate
 engine.setProperty('rate', 190)
 
 #voice female ; 0 for male
-voices = engine.getProperty('voices')       #getting details of current voice
+voices = engine.getProperty('voices')       #get details of current voice
 engine.setProperty('voice', voices[1].id)   #changing index, changes voices. 1 for female
 
 
@@ -71,18 +69,14 @@ def processCommand(c):
     elif "news" in c.lower():
         r = requests.get(f"https://newsapi.org/v2/everything?q=technology&language=en&pageSize=10&apiKey={newsapi}")
         if r.status_code == 200:
-            # Parse the JSON response
             data = r.json()
-            
-            # Extract the articles
+           
             articles = data.get('articles', [])
-            
-            # Print the headlines
+           
             for article in articles:
                 speak(article['title'])
 
     else:
-        # Let OpenAI handle the request
         output = aiProcess(c)
         finOutput = output.replace("*",".")
         print(finOutput)
@@ -93,7 +87,7 @@ if __name__ == "__main__":
     speak("Hello I am your assistant Nexi....")
 
     while True:
-        # obtain audio from the microphone
+        #obtain audio from the microphone
         r = sr.Recognizer()
          
         print("recognizing...")
@@ -105,7 +99,7 @@ if __name__ == "__main__":
             print(word)
             if(word.lower() == "nexi"):
                 speak("Yahhh say. What can i help you?")
-                # Listen for command
+                #Listen for command
                 with sr.Microphone() as source:
                     print("****Nexi Active...")
                     audio = r.listen(source)
